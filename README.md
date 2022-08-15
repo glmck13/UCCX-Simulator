@@ -7,3 +7,4 @@ The first thing you'll need is a web server to process API calls and serve sound
 ## Windows Scripting Host (WSH)
 
 ## Busybox
+## Windows Speech Synthesis API (SAPI)
