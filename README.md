@@ -7,7 +7,6 @@ The first thing you'll need is a web server to process API calls and serve sound
 ## Scripting engines
 Next you'll need some tools to write scripts.  Two good candidates are: Windows Scripting Host (WSH), and BusyBox.
   - **WSH** Windows Scripting Host is the remnant of the work Microsoft did on VisualBasic and JavaScipt. Each Windows build includes a tool called "cscript" that can execute scripts written in either of these languages.  You can read more about WSH [here](https://docs.microsoft.com/en-us/previous-versions/tn-archive/ee156603(v=technet.10)).
-
-
-## Busybox
-## Windows Speech Synthesis API (SAPI)
+  - **BusyBox** This is a very lightwieght port of many of the Linux command line tools.  A Windows build is available [here](https://frippery.org/busybox/).
+## Text-to-Speech engine
+Lastly, you'll need some technology to perform text-to-speech (TTS).  What I didn't realize until quite recently is that Cisco does not supply a native TTS engine with UCCX: they expect you to configure an external Media Resource Control Protocol (MRCP) provider for these services.  That's hard to do in the sandbox, since the UCCX can't connect to any outside service provider.  Thankfully, I came up with a workaround: Microsoft's own speech API: [SAPI](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723627(v=vs.85)). 
