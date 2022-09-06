@@ -16,4 +16,4 @@ Pick one of the Windows Servers in the sandbox to function as the simulator.  He
 2. Place a copy of the BusyBox and TinyWeb executables (links provided above) in this folder
 3. Run: busybox --install
 4. Edit the Path variable in the environment: C:\Simulator;%Path%
-5. Open: Control Panel -> Default Programs -> Associate a file type or protocol with a program.  Set the program for .js files to C:\Windows\System32\cscript.exe
+5. Open a CMD window with amdin privilege and run: cscript /H:CScript
