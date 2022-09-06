@@ -17,3 +17,5 @@ Pick one of the Windows Servers in the sandbox to function as the simulator.  He
 3. Run: busybox --install
 4. Edit the Path variable in the environment: C:\Simulator;%Path%
 5. Open a CMD window with amdin privilege and run: cscript /H:CScript
+6. Copy the contents of the WWW folder in this repository to C:\Simulator
+7. 
