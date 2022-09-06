@@ -10,3 +10,6 @@ Next you'll need some tools to write scripts.  Two good candidates are: Windows 
   - **BusyBox** This is a very lightwieght port of many of the Linux command line tools.  A Windows build is available [here](https://frippery.org/busybox/).
 ### Text-to-Speech engine
 Lastly, you'll need some technology to perform text-to-speech (TTS).  What I didn't realize until quite recently is that Cisco does not supply a native TTS engine with UCCX: they expect you to configure an external Media Resource Control Protocol (MRCP) provider for these services.  That's hard to do in the sandbox, since the UCCX can't connect to any outside service provider.  Thankfully, I came up with a workaround: Microsoft's own speech API: [SAPI](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723627(v=vs.85)). 
+## Installation
+Pick one of the Windows Servers in the sandbox to function as the simulator.  Here's how to set it up:
+1. 
