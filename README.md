@@ -18,4 +18,12 @@ Pick one of the Windows Servers in the sandbox to function as the simulator.  He
 4. Edit the Path variable in the environment: C:\Simulator;%Path%
 5. Open a CMD window with amdin privilege and run: cscript /H:CScript
 6. Copy the contents of the WWW folder in this repository to C:\Simulator
-7. 
+7. cd C:\Simulator\WWW\cgi-bin, then: mklink /h sim.js wrapper.js
+Next, make sure the audio service is enabled/running on the machine: Control Panel -> Sound
+## Reboot
+On every reboot of the PC, you'll need to relaunch the webserver:  
+1. cd C:\Simulator
+2. tiny C:\Simulator\WWW 8000
+## Test
+Try accessing the following URL to verify everything is working: http://10.10.20.13:8000/cgi-bin/sim.js?cmd=voice&arg1=This+is+a+test
+
