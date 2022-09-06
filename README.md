@@ -11,5 +11,9 @@ Next you'll need some tools to write scripts.  Two good candidates are: Windows 
 ### Text-to-Speech engine
 Lastly, you'll need some technology to perform text-to-speech (TTS).  What I didn't realize until quite recently is that Cisco does not supply a native TTS engine with UCCX: they expect you to configure an external Media Resource Control Protocol (MRCP) provider for these services.  That's hard to do in the sandbox, since the UCCX can't connect to any outside service provider.  Thankfully, I came up with a workaround: Microsoft's own speech API: [SAPI](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723627(v=vs.85)). 
 ## Installation
-Pick one of the Windows Servers in the sandbox to function as the simulator.  Here's how to set it up:
-1. 
+Pick one of the Windows Servers in the sandbox to function as the simulator.  Here's how to set it up:  
+1. mkdir C:\Simulator
+2. Place a copy of the BusyBox and TinyWeb executables (links provided above) in this folder
+3. Run: busybox --install
+4. Edit the Path variable in the environment: C:\Simulator;%Path%
+5. Open: Control Panel -> Default Programs -> Associate a file type or protocol with a program.  Set the program for .js files to C:\Windows\System32\cscript.exe
