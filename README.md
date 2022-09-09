@@ -11,12 +11,12 @@ Next you'll need some tools to write scripts.  Two good candidates are: Windows 
 ### Text-to-Speech engine
 Lastly, you'll need some technology to perform text-to-speech (TTS).  What I didn't realize until quite recently is that Cisco does not supply a native TTS engine with UCCX: they expect you to configure an external Media Resource Control Protocol (MRCP) provider for these services.  That's hard to do in the sandbox, since the UCCX can't connect to any outside service provider.  Thankfully, I came up with a workaround: Microsoft's own speech API: [SAPI](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723627(v=vs.85)). 
 ## Installation
-Pick one of the Windows Servers in the sandbox to function as a simulator. First, make sure audio is enabled on the machine by going to: Control Panel -> Sound.  Then do the following:  
+Pick one of the Windows Servers in the sandbox to function as a simulator and RDP into it. Check that audio is enabled by opening up Control Panel -> Sound.  Next open a CMD window and do the following:  
 1. mkdir C:\Simulator
-2. Place a copy of the BusyBox and TinyWeb executables (links provided above) in this folder
+2. Place a copy of BusyBox and TinyWeb (links provided above) in the Simulator folder
 3. Run: busybox --install
-4. Edit the Path variable in the environment: C:\Simulator;%Path%
-5. Open a CMD window with admin privilege and run: cscript /H:CScript
+4. Edit the Path variable to include the Simulator forder, e.g. set Path=C:\Simulator;%Path%
+5. Run: cscript /H:CScript (the alternative is WScript, but that won't work for CGI applications) 
 6. Copy the contents of the WWW folder in this repository to C:\Simulator
 7. cd C:\Simulator\WWW\cgi-bin, then: mklink /h sim.js wrapper.js
 ## Reboot
@@ -24,4 +24,4 @@ On every reboot of the PC, you'll need to relaunch the webserver:
 1. cd C:\Simulator
 2. tiny C:\Simulator\WWW 8000
 ## Test
-Try accessing the following URL to verify everything is working: http://10.10.20.1X:8000/cgi-bin/sim.js?cmd=voice&arg1=This+is+a+test
+Try accessing the following URL to verify everything is working: http://10.10.20.1X:8000/cgi-bin/sim.js?cmd=voice&arg1=This+is+a+test.  This should create a sound file called outxxxx.wav in the WWW\cdn folder, that you can listen to by opening: http://10.10.20.1X:8000/cdn/outxxxx.wav
