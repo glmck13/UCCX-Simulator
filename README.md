@@ -15,7 +15,7 @@ Pick one of the Windows Servers in the sandbox to function as a simulator and RD
 1. mkdir C:\Simulator
 2. Place a copy of BusyBox and TinyWeb (links provided above) in the Simulator folder
 3. Run: busybox --install
-4. Edit the Path variable to include the Simulator forder, e.g. set Path=C:\Simulator;%Path%
+4. Edit the Path variable to include the Simulator forder, e.g. set Path=C:\Simulator
 5. Run: cscript /H:CScript (the alternative is WScript, but that won't work for CGI applications) 
 6. Copy the contents of the WWW folder in this repository to C:\Simulator
 7. cd C:\Simulator\WWW\cgi-bin, then: mklink /h sim.js wrapper.js
