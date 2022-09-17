@@ -27,15 +27,26 @@ On every reboot of the PC, you'll need to relaunch the webserver:
 When you're finished, try accessing the following URL to verify everything is working: http://10.10.20.1X:8000/cgi-bin/sim.js?cmd=voice&arg1=This+is+a+test.  This should create a sound file called outxxxx.wav in the WWW\cdn folder, that you can listen to by opening: http://10.10.20.1X:8000/cdn/outxxxx.wav  
 
 # UCCX IVR Setup
-Here are the steps to configure an IVR application in sandbox.  We'll use extension 8000 to trigger exexution of sim.aef:
+Here are the steps to configure an IVR application in the sandbox.  We'll use extension 8000 to trigger execution of sim.aef:
 1. Upload the sim.aef script included in this repository to UCCX by clicking on Applications -> Script Management -> Upload Scripts
 2. Configure a Call Control Group (CCG) by clicking on Subsystems -> Cisco Unified CM Telephony -> Call Control Group -> Add New:
-3.   - Description (can be anything): **MYDEMO_CCG**
-4.   - Number Of CTI Ports (# of concurrent calls): **2**
-5.   - Device Name Prefix (can be anything): **uccx**
-6.   - Starting Directory Number (an available DN in UCM, but not the trigger!): **7000**
-7.   - Device Pool (select from menu): **uccx_pool**
-8.   - DN Calling Search Space (select from menu): **css_UCCX**
-9.   - Location (select from menu): **Hub_None**
-10.   - Partition (select from menu): **UCCX Partition**
-
+    - Description (can be anything): **MYDEMO_CCG**
+    - Number Of CTI Ports (# of concurrent calls): **2**
+    - Device Name Prefix (can be anything): **uccx**
+    - Starting Directory Number (an available DN in UCM, but not the trigger!): **7000**
+    - Device Pool (select from menu): **uccx_pool**
+    - DN Calling Search Space (select from menu): **css_UCCX**
+    - Location (select from menu): **Hub_None**
+    - Partition (select from menu): **UCCX Partition**
+3. Add an Application by clicking on Applications -> Application Management -> Add New:
+    - Application Type (select from menu): **Cisco Script Application**
+    - Name (can be anything): **MYDEMO_IVR**
+    - Maximum Number of Sessions (# of concurrent calls): **2**
+    - Script (select from menu): **sim.aef**
+    - Description (can be anything): **MYDEMO_IVR**
+4. Add a Trigger by clicking on Add new trigger (on left panel):
+    - Trigger Type (select from menu): **Unified CM Telephony Trigger**
+    - Directory Number (an available DN in UCM, but not the CCG!): **8000**
+    - Device Name (can be anything): **MYDEMO_IVR**
+    - Description (can be anything): **MYDEMO_IVR**
+    - Call Control Group (select from menu): **MYDEMO_CCG**
