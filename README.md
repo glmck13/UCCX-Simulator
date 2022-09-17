@@ -50,3 +50,5 @@ Here are the steps to configure an IVR application in the sandbox.  We'll use ex
     - Device Name (can be anything): **MYDEMO_IVR**
     - Description (can be anything): **MYDEMO_IVR**
     - Call Control Group (select from menu): **MYDEMO_CCG**
+
+When finished, try testing your app by logging into on of the Windows servers, starting Jabber, and callin extension 8000.  If all goes well you'll be greeted with the message: "Enter ticket number".  Enjoy!
